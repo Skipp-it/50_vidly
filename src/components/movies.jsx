@@ -1,6 +1,7 @@
 import React, { Component } from "react"; // shortcut imrc
 import { getMovies } from "../services/fakeMovieService"; // shortcut cc
 import Like from "./common/like";
+import { Link } from "react-router-dom";
 
 class Movies extends Component {
   state = {
@@ -44,7 +45,9 @@ class Movies extends Component {
           <tbody>
             {this.state.movies.map((movie) => (
               <tr id={movie._id} key={movie._id}>
-                <td>{movie.title}</td>
+                <td>
+                  <Link to={`/movies/${movie._id}`}>{movie.title}</Link>
+                </td>
                 <td>{movie.genre.name}</td>
                 <td>{movie.numberInStock}</td>
                 <td>{movie.dailyRentalRate}</td>
